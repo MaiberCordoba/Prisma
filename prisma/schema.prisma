@@ -21,9 +21,28 @@ model Usuario{
   telefono String @db.VarChar(20)
   password String @db.VarChar(100)
   rol Rol
+  mascota Mascota[]
 }
 
 enum Rol{
   Admin
   Invitado
+}
+
+enum Genero{
+  Admin
+  Invitado
+}
+
+enum Estado{
+  Admin
+  Invitado
+}
+model Mascota{
+  id_mascota Int @id @default(autoincrement())
+  nombre String @db.VarChar(50)
+  genero Genero
+  estado Estado
+  usuarioId Int 
+  usuario Usuario @relation(fields: [usuarioId],references: [id])
 }
