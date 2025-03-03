@@ -12,3 +12,11 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model Usuario{
+  id Int @id @default(autoincrement())
+  indetificacion Int @unique
+  nombre String @db.VarChar(50)
+  correo String @db.VarChar(50) @unique
+  telefono String @db.VarChar(20)
+}
