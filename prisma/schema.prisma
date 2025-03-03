@@ -19,4 +19,11 @@ model Usuario{
   nombre String @db.VarChar(50)
   correo String @db.VarChar(50) @unique
   telefono String @db.VarChar(20)
+  password String @db.VarChar(100)
+  rol Rol
+}
+
+enum Rol{
+  Admin
+  Invitado
 }
